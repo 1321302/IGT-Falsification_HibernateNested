@@ -13,8 +13,8 @@ public class App {
 
         SessionFactory sessionFactory = HibernateUtil.getSessionFactory();
 
-        System.out.println("1 " + sessionFactory.hashCode());
-        System.out.println("2 " + sessionFactory.hashCode());
+        System.out.println("Hashcode 1 " + sessionFactory.hashCode());
+        System.out.println("Hashcode 2 " + sessionFactory.hashCode());
 
         Session session = sessionFactory.openSession();
        // Session session2 = sessionFactory.openSession();
@@ -34,7 +34,9 @@ public class App {
         List result = query.list();
 
         session.beginTransaction();
+        System.out.println("Hashcode 1 :"+session.hashCode());
         session.beginTransaction();
+        System.out.println("Hashcode 2 :"+session.hashCode());
       //  session2.beginTransaction();
         session.getTransaction().commit();
         session.getTransaction().commit();
